@@ -31,7 +31,8 @@ st.caption("RFM Segmentation • Cohort Retention • Churn Risk Scoring (Online
 @st.cache_data
 def load_raw_data(path: str) -> pd.DataFrame:
     """Load + clean the Online Retail dataset."""
-    df = pd.read_excel(path)
+    df = pd.read_excel(path, engine="openpyxl")
+
 
     # Basic cleaning (standard for this dataset)
     df = df.dropna(subset=["CustomerID"]).copy()
